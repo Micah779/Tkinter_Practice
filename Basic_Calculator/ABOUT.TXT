@@ -1,0 +1,38 @@
+- This is going to be a basic calculator GUI
+- I am going to use Tkinter for the GUI
+- I will use Python to make the math functions
+
+
+Idea layout:
+
+- first i drew out the calculator
+    - the design was a tall rectangle
+      with a 4x6 grid to hold all of the
+      buttons.
+    - the first row of the grid is for the
+      visualization of the calculation.
+
+Components:
+
+title
+number buttons + sizing/position
+operation buttons + sizing/position
+functions for operations
+function for clearing (C)
+function for enter (=)
+connection enter function to proper space
+
+8/8/23 LOG:
+
+starting the basics of the calcualtor. i initiated the root
+for the app and made the initial window for all the content
+but I don't know how to lock in a certain width/height for
+the window yet. I also tried to make the area that the solution
+would appear in with a "Label". but it seems to be stuck in the
+center of the GUI. I need to figure out if thats the best widget
+option or not.
+
+Good things so far:
+created a root instance
+created a window that pops up (kinda)
+created a title for my calculator GUI
