@@ -1,4 +1,4 @@
-from tkinter import *
+"""from tkinter import *
 from tkinter import ttk
 import math
 
@@ -26,3 +26,4 @@ result.grid(column=1, row=1, sticky=(N, W))
 button_1 = ttk.Button()
 
 root.mainloop()
+"""

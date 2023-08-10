@@ -22,6 +22,9 @@ function for clearing (C)
 function for enter (=)
 connection enter function to proper space
 
+To figure out more with Tkinter, I need to practice the basics, so I am going to do some practice in a
+/practice.py file before finishing the /basic_calculator /main.py file.
+
 8/8/23 LOG:
 
 starting the basics of the calcualtor. i initiated the root
@@ -36,3 +39,4 @@ Good things so far:
 created a root instance
 created a window that pops up (kinda)
 created a title for my calculator GUI
+
