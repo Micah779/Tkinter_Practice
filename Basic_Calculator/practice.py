@@ -2,10 +2,18 @@ import tkinter as tk
 
 window = tk.Tk()
 
-label = tk.Label("Name")
-entry = tk.Entry()
+border_effects = {
+ "flat": tk.FLAT,
+ "sunken": tk.SUNKEN,
+ "raised": tk.RAISED,
+ "groove": tk.GROOVE,
+ "ridge": tk.RIDGE
+}
 
-label.pack()
-entry.pack()
+for relief_name, relief in border_effects.items():
+    frame = tk.Frame(master=window, relief=relief, borderwidth=5)
+    frame.pack(side=tk.LEFT)
+    label = tk.Label(text=relief_name, master=frame)
+    label.pack()
 
 window.mainloop()
