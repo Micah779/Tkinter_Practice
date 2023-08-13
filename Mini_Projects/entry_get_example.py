@@ -3,7 +3,13 @@ from tkinter import ttk
 
 def button_func():
     # upadate the label
-    label.config(text = entry_text.get())
+    label['text'] = entry_text.get()
+    # disables the entry box
+    entry['state'] = 'disabled'
+
+def revert_button_func():
+    label['text'] = "Some text"
+    entry['state'] = 'enabled'
 
 # window/root/app
 window = tk.Tk()
@@ -29,11 +35,18 @@ entry.pack()
 # a button
 button = ttk.Button(
     master=window,
-    text="The Button",
+    text="Update Label",
     command = button_func
 )
 button.pack()
 
+# revert text button
+revert_button = ttk.Button(
+    master=window,
+    text="Revert Label",
+    command = revert_button_func
+)
+revert_button.pack()
 
 # run
 window.mainloop()
