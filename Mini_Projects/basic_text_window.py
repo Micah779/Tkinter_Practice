@@ -7,7 +7,7 @@ def printButton():
 # creating the main window/root/app
 window = ttk.Window()
 window.title("Text Widget Window")
-window.geometry("800x500")
+window.geometry("1000x500")
 
 
 # creating the main frame
@@ -36,13 +36,28 @@ entry = ttk.Entry(
     textvariable=entry_text)
 entry.pack()
 
+# creating second label
+label_two = ttk.Label(
+    master=window,
+    text="my label",
+    font="Arial 20 bold")
+label_two.pack()
+
+# creating second button
+button_two = ttk.Button(
+    master=window,
+    text="hello",
+    command= lambda: print("Hello"))
+button_two.pack()
+
 # creating the print button
 button = ttk.Button(
     master=window, 
     text="Print Button",
     command=printButton
     )
-button.pack()
+button.pack(pady=10)
+
 
 # run
 window.mainloop()
