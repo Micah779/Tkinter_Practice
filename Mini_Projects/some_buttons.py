@@ -3,21 +3,31 @@ from tkinter import ttk
 
 # window/root/app
 window = tk.Tk()
-window.geometry("300x130")
+window.geometry("600x400")
 
 # button
+def button_func():
+    print("a basic button")
+
+button_string = tk.StringVar(value="a button with string var")
+
 button = ttk.Button(
     master=window,
-    text="Button"
+    text="Button",
+    command= button_func,
+    textvariable=button_string
 )
 button.pack()
 
 # checkbox 1
-checkbox_2 = ttk.Checkbutton(
+check_var = tk.BooleanVar()
+checkbox_1 = ttk.Checkbutton(
     master=window,
-    text="checkbox 1"
+    text="checkbox 1",
+    command = lambda: print(check_var.get()),
+    variable= check_var
 )
-checkbox_2.pack()
+checkbox_1.pack()
 
 # checkbox 2
 checkbox_3 = ttk.Checkbutton(
