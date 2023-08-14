@@ -8,6 +8,7 @@ window.geometry("600x400")
 # button
 def button_func():
     print("a basic button")
+    print(radio_var.get())
 
 button_string = tk.StringVar(value="a button with string var")
 
@@ -39,16 +40,23 @@ checkbox_3 = ttk.Checkbutton(
 checkbox_3.pack()
 
 # radio 1
+# always set a 'value' for radios
+radio_var = tk.StringVar()
 radio_1 = ttk.Radiobutton(
     master=window,
-    text="radio 1"
+    text="radio 1",
+    value= 'radio 1',
+    command = lambda: print(radio_var.get()),
+    variable= radio_var
 )
 radio_1.pack()
 
 # radio 2
 radio_2 = ttk.Radiobutton(
     master=window,
-    text="radio 2"
+    text="radio 2",
+    value = 2,
+    variable= radio_var
 )
 radio_2.pack()
 
