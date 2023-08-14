@@ -20,12 +20,14 @@ button = ttk.Button(
 button.pack()
 
 # checkbox 1
-check_var = tk.BooleanVar()
+check_var = tk.IntVar(value=10)
 checkbox_1 = ttk.Checkbutton(
     master=window,
     text="checkbox 1",
     command = lambda: print(check_var.get()),
-    variable= check_var
+    variable= check_var,
+    onvalue= 10,
+    offvalue= 5
 )
 checkbox_1.pack()
 
