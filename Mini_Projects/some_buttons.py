@@ -33,11 +33,11 @@ checkbox_1 = ttk.Checkbutton(
 checkbox_1.pack()
 
 # checkbox 2
-checkbox_3 = ttk.Checkbutton(
+checkbox_2 = ttk.Checkbutton(
     master=window,
     text="checkbox 2"
 )
-checkbox_3.pack()
+checkbox_2.pack()
 
 # radio 1
 # always set a 'value' for radios
