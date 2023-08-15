@@ -35,7 +35,8 @@ checkbox_1.pack()
 # checkbox 2
 checkbox_2 = ttk.Checkbutton(
     master=window,
-    text="checkbox 2"
+    text="checkbox 2",
+    command = lambda: print('test')
 )
 checkbox_2.pack()
 
