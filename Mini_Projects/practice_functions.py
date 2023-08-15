@@ -10,7 +10,9 @@ def button_func(entry_string):
 
 # widgets
 entry_string = tk.StringVar(value = 'Test')
-entry = ttk.Entry(window)
+entry = ttk.Entry(
+    window,
+    textvariable = entry_string)
 entry.pack()
 
 button = ttk.Button(
