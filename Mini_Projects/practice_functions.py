@@ -8,6 +8,12 @@ def button_func(entry_string):
     print("Button was pressed")
     print(entry_string.get())
 
+def outer_function(parameter):
+    def inner_function():
+        print("A button was pressed")
+        print(parameter.get())
+    return inner_function
+
 # widgets
 entry_string = tk.StringVar(value = 'Test')
 entry = ttk.Entry(
@@ -19,7 +25,7 @@ button = ttk.Button(
     window, 
     text="Button",
     # wrapping the function in lambda tells it to execute only when pressing the buttons
-    command = lambda: button_func(entry_string)
+    command = lambda: outer_function(entry_string)
     )
 button.pack()
 
