@@ -16,7 +16,8 @@ entry.pack()
 button = ttk.Button(
     window, 
     text="Button",
-    command = button_func(entry_string)
+    # wrapping the function in lambda tells it to execute only when pressing the buttons
+    command = lambda: button_func(entry_string)
     )
 button.pack()
 
