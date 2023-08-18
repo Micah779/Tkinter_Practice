@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from random import choice
 
 # window
 window = tk.Tk()
@@ -20,6 +21,16 @@ table.heading('first', text = 'First Name')
 table.heading('last', text = 'Surname')
 table.heading('email', text = 'Email')
 table.pack()
+
+# insert values into a table
+#table.insert(parent = '',
+#             index = 0,
+#             values = ('John', 'Doe', 'johndoe@gmail.com'))
+for i in range(100):
+    table.insert(
+        parent = '',
+        index = 0,
+        values = (choice(first_name), choice(last_name), f'{choice(first_name)}{choice(last_name)}@gmail.com'))
 
 # run
 window.mainloop()
