@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 
 # window
 window = tk.Tk()
@@ -10,9 +11,9 @@ def login():
     username = "johnsmith"
     password = "12345"
     if username_entry.get() == username and password_entry.get() == password:
-        print("Successfully Logged in")
+        messagebox.showinfo(title="Login Success", message="You successfully logged in")
     else:
-        print("Invalid Login")
+        messagebox.showerror(title="Invalid Login", message="Credentials are invalid")
 
 frame = tk.Frame()
 
