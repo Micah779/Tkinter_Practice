@@ -25,7 +25,7 @@ def clear_field():
 
 window = tk.Tk()
 window.title('Basic Calculator')
-window.geometry("300x275")
+window.geometry("303x210")
 
 # result text field
 text_result = tk.Text(window, height=2, width=16, font=('Arial', 24))
