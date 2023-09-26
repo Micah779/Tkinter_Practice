@@ -1,92 +1,64 @@
 import tkinter as tk
 
-calculation = ""
+calculation = "" 
 
 def add_to_calculation(symbol):
-    global calculation
-    calculation += str(symbol)
-    text_result.delete(1.0, "end")
-    text_result.insert(1.0, calculation)
+  global calculation
+  calculation += str(symbol)
+  text_result.delete(1.0, "end")
+  text_result.insert(1.0, calculation)
 
 def evaluate_calculation():
-    global calculation
-    try:
-        result = str(eval(calculation))
-        text_result.delete(1.0, 'end')
-        text_result.insert(1.0, result)
-    except:
-        clear_field()
-        text_result.insert(1.0, "Error")
+  global calculation
+  try:
+    calculation = str(eval(calculation))
+    text_result.delete(1.0, "end")
+    text_result.insert(1.0, calculation)
+  except:
+    clear_field()
+    text_result.insert(1.0, "Error")  
 
 def clear_field():
-    global calculation
-    calculation = ""
+  global calculation
+  calculation = ""
+  text_result.delete(1.0, "end")
+
+def calculate_percentage():
+  global calculation
+  try:
+    calculation = str(float(calculation) / 100)
     text_result.delete(1.0, "end")
+    text_result.insert(1.0, calculation)
+  except:
+    clear_field()
+    text_result.insert(1.0, "Error")
 
-window = tk.Tk()
-window.title('Basic Calculator')
-window.geometry("303x210")
+root = tk.Tk()
+root.title("Calculator")
 
-# result text field
-text_result = tk.Text(window, height=2, width=16, font=('Arial', 24))
-# grid structure with 5 columns, text field goes across all 5
+text_result = tk.Text(root, height=2, width=25, font=("Arial", 24))
 text_result.grid(columnspan=5)
 
-btn_1 = tk.Button(window, text="1", command=lambda: add_to_calculation(1), width=5, font=("Arial", 14))
+btn_1 = tk.Button(root, text="1", command=lambda: add_to_calculation(1), width=5, font=("Arial", 14))
 btn_1.grid(row=2, column=1)
 
-btn_2 = tk.Button(window, text="2", command=lambda: add_to_calculation(2), width=5, font=("Arial", 14))
-btn_2.grid(row=2, column=2)
+# Buttons for 2-9 and 0
 
-btn_3 = tk.Button(window, text="3", command=lambda: add_to_calculation(3), width=5, font=("Arial", 14))
-btn_3.grid(row=2, column=3)
+btn_dec = tk.Button(root, text=".", command=lambda: add_to_calculation("."), width=5, font=("Arial", 14))
+btn_dec.grid(row=5, column=1)
 
-btn_4 = tk.Button(window, text="4", command=lambda: add_to_calculation(4), width=5, font=("Arial", 14))
-btn_4.grid(row=3, column=1)
+btn_percent = tk.Button(root, text="%", command=calculate_percentage, width=5, font=("Arial", 14)) 
+btn_percent.grid(row=5, column=2)
 
-btn_5 = tk.Button(window, text="5", command=lambda: add_to_calculation(5), width=5, font=("Arial", 14))
-btn_5.grid(row=3, column=2)
+btn_add = tk.Button(root, text="+", command=lambda: add_to_calculation("+"), width=5, font=("Arial", 14))
+btn_add.grid(row=2, column=4) 
 
-btn_6 = tk.Button(window, text="6", command=lambda: add_to_calculation(6), width=5, font=("Arial", 14))
-btn_6.grid(row=3, column=3)
+# Other operator buttons (-, *, /)
 
-btn_7 = tk.Button(window, text="7", command=lambda: add_to_calculation(7), width=5, font=("Arial", 14))
-btn_7.grid(row=4, column=1)
+btn_eq = tk.Button(root, text="=", command=evaluate_calculation, width=5, font=("Arial", 14))  
+btn_eq.grid(row=5, column=4)
 
-btn_8 = tk.Button(window, text="8", command=lambda: add_to_calculation(8), width=5, font=("Arial", 14))
-btn_8.grid(row=4, column=2)
+btn_clear = tk.Button(root, text="Clear", command=clear_field, width=10, font=("Arial", 14))
+btn_clear.grid(row=6, column=1, columnspan=2)
 
-btn_9 = tk.Button(window, text="9", command=lambda: add_to_calculation(9), width=5, font=("Arial", 14))
-btn_9.grid(row=4, column=3)
-
-btn_0 = tk.Button(window, text="0", command=lambda: add_to_calculation(0), width=5, font=("Arial", 14))
-btn_0.grid(row=5, column=2)
-
-btn_parlef = tk.Button(window, text="(", command=lambda: add_to_calculation("("), width=5, font=("Arial", 14))
-btn_parlef.grid(row=5, column=1)
-
-btn_parright = tk.Button(window, text=")", command=lambda: add_to_calculation(")"), width=5, font=("Arial", 14))
-btn_parright.grid(row=5, column=3)
-
-# clear and calculate buttons
-
-btn_clr = tk.Button(window, text="Clear", command=clear_field, width=14, font=("Arial", 14))
-btn_clr.grid(row=6, column=1, columnspan=2)
-
-btn_entr = tk.Button(window, text="=", command=evaluate_calculation, width=14, font=("Arial", 14))
-btn_entr.grid(row=6, column=3, columnspan=3)
-
-# operation buttons
-addition = tk.Button(window, text="+", command=lambda: add_to_calculation("+"), width=5, font=("Arial", 14))
-addition.grid(row=2, column=4)
-
-subtraction = tk.Button(window, text="-", command=lambda: add_to_calculation("-"), width=5, font=("Arial", 14))
-subtraction.grid(row=3, column=4)
-
-multiplication = tk.Button(window, text="x", command=lambda: add_to_calculation("*"), width=5, font=("Arial", 14))
-multiplication.grid(row=4, column=4)
-
-division = tk.Button(window, text="/", command=lambda: add_to_calculation("/"), width=5, font=("Arial", 14))
-division.grid(row=5, column=4)
-
-window.mainloop()
+root.mainloop()
